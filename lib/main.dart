@@ -69,7 +69,7 @@ class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
                   _fromCurrency = value!;
                 });
               },
-              items: ['USD', 'EUR', 'GBP', 'INR'].map((currency) {
+              items: ['USD', 'EUR', 'GBP', 'INR', 'AED'].map((currency) {
                 return DropdownMenuItem<String>(
                   value: currency,
                   child: Text(currency),
@@ -84,7 +84,7 @@ class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
                   _toCurrency = value!;
                 });
               },
-              items: ['USD', 'EUR', 'GBP', 'INR'].map((currency) {
+              items: ['USD', 'EUR', 'GBP', 'INR', 'AED'].map((currency) {
                 return DropdownMenuItem<String>(
                   value: currency,
                   child: Text(currency),
@@ -101,7 +101,11 @@ class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
                       .convertCurrency(amount, _fromCurrency, _toCurrency);
                 }
               },
-              child: const Text('Convert'),
+              child: const Text(
+                'Convert',
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+              ),
             ),
             const SizedBox(height: 20),
             BlocBuilder<CurrencyCubit, CurrencyState>(
